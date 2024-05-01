@@ -8,7 +8,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // Text editing controllers for username and password
+  // TODO: Add text editing controllers (101)
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -28,66 +28,50 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
             const SizedBox(height: 120.0),
-            // TextFields for username and password
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(
+                filled: true,
                 labelText: 'Username',
               ),
             ),
-            const SizedBox(height: 12.0),
             TextField(
               controller: _passwordController,
               decoration: const InputDecoration(
+                filled: true,
                 labelText: 'Password',
               ),
               obscureText: true,
             ),
-            // Button bar
+            // spacer
+            const SizedBox(height: 12.0),
+            // TODO: Add button bar (101)
             OverflowBar(
               alignment: MainAxisAlignment.end,
+              // TODO: Add a beveled rectangular border to CANCEL (103)
               children: <Widget>[
-                // Cancel button
+                // TODO: Add buttons (101)
                 TextButton(
+                  child: const Text('CANCEL'),
                   onPressed: () {
-                    // Clear text fields
+                    // TODO: Clear the text fields (101)
                     _usernameController.clear();
                     _passwordController.clear();
                   },
-                  child: const Text('CANCEL'),
                 ),
-                // Next button
+                // TODO: Add an elevation to NEXT (103)
+                // TODO: Add a beveled rectangular border to NEXT (103)
                 ElevatedButton(
-                  onPressed: () {
-                    // Show the next page (placeholder action)
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              NextPage()), // Ganti NextPage dengan nama halaman berikutnya
-                    );
-                  },
                   child: const Text('NEXT'),
+                  onPressed: () {
+                    // TODO: Show the next page (101)
+                    Navigator.pop(context);
+                  },
                 ),
               ],
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-// Placeholder for the next page, replace it with the actual implementation
-class NextPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Next Page'),
-      ),
-      body: const Center(
-        child: Text('you did it!'),
       ),
     );
   }
